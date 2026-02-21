@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Tech Nexus | Digital Engineering</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+    /* HERO LAYOUT FIX */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+}
+
+.hero-content{
+flex:1;
+}
+
+.hero-visual{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* GLASS DASHBOARD */
+/* HERO LAYOUT */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:120px;
+}
+
+/* HERO VISUAL */
+.hero-visual{
+flex:1;
+display:flex;
+justify-content:center;
+position:relative;
+}
+
+/* Glow Behind Card */
+.hero-visual::before{
+content:"";
+position:absolute;
+width:550px;
+height:550px;
+background:radial-gradient(circle,#00f5ff40,#a855f740,transparent 70%);
+filter:blur(120px);
+z-index:-1;
+}
+
+/* GLASS CARD BIG VERSION */
+.glass-card{
+width:500px;                /* 🔥 bigger */
+padding:55px;               /* more breathing space */
+border-radius:35px;
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.15);
+backdrop-filter:blur(40px);
+box-shadow:0 80px 180px rgba(0,255,255,0.25);
+animation:float 6s ease-in-out infinite;
+}
+
+/* Title Bigger */
+.glass-card h4{
+font-size:24px;
+margin-bottom:40px;
+letter-spacing:1px;
+}
+
+/* Stats Text Bigger */
+.stat-row{
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+font-size:17px;
+color:#ccc;
+}
+
+/* Progress Bars Thicker */
+.progress{
+height:12px;
+background:rgba(255,255,255,0.1);
+border-radius:30px;
+margin-bottom:35px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:0;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+border-radius:30px;
+transition:width 1.8s ease;
+}
+
+.progress-bar.small{
+width:98%;
+}
+
+.progress-bar.tiny{
+width:72%;
+}
+
+/* Colors */
+.green{color:#00ffae;}
+.blue{color:#00f5ff;}
+.purple{color:#a855f7;}
+
+/* Float Animation */
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-18px);}
+}
+
+/* Responsive */
+@media(max-width:1000px){
+.hero{
+flex-direction:column;
+text-align:center;
+}
+.hero-visual{
+margin-top:50px;
+}
+.glass-card{
+width:100%;
+max-width:450px;
+}
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+font-family:'Inter',sans-serif;
+background:#0b0b12;
+color:#fff;
+overflow-x:hidden;
+}
+body::before{
+content:"";
+position:fixed;
+width:600px;height:600px;
+background:radial-gradient(circle,#00f5ff22,transparent 70%);
+top:-200px;right:-200px;
+z-index:-1;
+}
+body::after{
+content:"";
+position:fixed;
+width:600px;height:600px;
+background:radial-gradient(circle,#a855f722,transparent 70%);
+bottom:-200px;left:-200px;
+z-index:-1;
+}
+nav{
+position:fixed;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.04);
+z-index:1000;
+}
+nav h2{
+font-weight:800;
+letter-spacing:1px;
+}
+nav a{
+color:#bbb;
+margin-left:30px;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+nav a:hover{color:#00f5ff;}
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+.hero-content{
+max-width:850px;
+animation:fadeUp 1s ease forwards;
+}
+
+.hero h1{
+font-size:70px;
+line-height:1.1;
+font-weight:800;
+margin-bottom:30px;
+}
+.lux-gradient{
+background:linear-gradient(90deg,#00f5ff,#a855f7,#00f5ff);
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
+}
+.hero p{
+color:#bdbdcc;
+font-size:20px;
+margin-bottom:45px;
+}
+.btn{
+padding:15px 35px;
+border-radius:50px;
+border:none;
+cursor:pointer;
+font-weight:600;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+color:#000;
+transition:0.3s;
+}
+.btn:hover{transform:scale(1.05);}
+.section{padding:120px 8%;}
+h2{font-size:40px;margin-bottom:60px;}
+.about-container{
+display:flex;
+gap:80px;
+align-items:center;
+flex-wrap:wrap;
+}
+.about-text{
+flex:1;
+min-width:300px;
+}
+.about-text p{
+color:#bdbdcc;
+margin-bottom:20px;
+font-size:17px;
+}
+.about-highlights{
+margin-top:40px;
+display:grid;
+gap:25px;
+}
+.about-highlights h3{
+font-size:18px;
+margin-bottom:5px;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.about-visual{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+.about-cards{
+display:flex;
+flex-direction:column;
+gap:30px;
+animation:floatCards 6s ease-in-out infinite;
+}
+.stat-card{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.12);
+backdrop-filter:blur(25px);
+border-radius:20px;
+padding:30px 40px;
+min-width:240px;
+box-shadow:0 20px 60px rgba(0,255,255,0.08);
+transition:0.4s ease;
+}
+.stat-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 35px 80px rgba(0,255,255,0.2);
+}
+.stat-card h4{
+font-size:36px;
+font-weight:700;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:8px;
+}
+.stat-card p{
+color:#bdbdcc;
+font-size:14px;
+}
+@keyframes floatCards{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+.service-card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(25px);
+border-radius:25px;
+padding:50px;
+transition:0.4s;
+cursor:pointer;
+}
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 30px 80px rgba(0,255,255,0.1);
+}
+.service-card i{
+font-size:32px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.service-card p{color:#cfcfd8;}
+.service-details{
+max-height:0;
+overflow:hidden;
+transition:0.5s ease;
+}
+
+.service-card:hover .service-details{
+max-height:500px;
+margin-top:15px;
+}
+.service-details li{
+list-style:none;
+padding:8px 0;
+color:#aaa;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.counter-section{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+}
+.counter{
+font-size:50px;
+font-weight:800;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.testimonial-wrapper{
+overflow:hidden;
+}
+.testimonial-track{
+display:flex;
+gap:40px;
+width:max-content;
+animation:scrollLoop 25s linear infinite;
+}
+.testimonial-wrapper:hover .testimonial-track{
+animation-play-state:paused;
+}
+.testimonial-card{
+min-width:350px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(25px);
+border-radius:20px;
+padding:40px;
+color:#ccc;
+}
+@keyframes scrollLoop{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+.contact-form{
+max-width:600px;
+margin:auto;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(25px);
+padding:50px;
+border-radius:25px;
+}
+.input-group{
+position:relative;
+margin-bottom:30px;
+}
+.input-group input,
+.input-group textarea{
+width:100%;
+padding:14px 10px;
+background:transparent;
+border:none;
+border-bottom:1px solid rgba(255,255,255,0.2);
+color:#fff;
+}
+.input-group label{
+position:absolute;
+top:14px;
+left:10px;
+color:#aaa;
+transition:0.3s;
+}
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label{
+top:-12px;
+font-size:12px;
+color:#00f5ff;
+}
+footer{
+padding:70px 8%;
+text-align:center;
+color:#aaa;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+.whatsapp{
+position:fixed;
+bottom:30px;
+right:30px;
+width:60px;height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#fff;
+box-shadow:0 15px 40px rgba(0,255,0,0.3);
+z-index:1000;
+}
+@keyframes fadeUp{
+0%{opacity:0;transform:translateY(40px);}
+100%{opacity:1;transform:translateY(0);}
+}
+@keyframes gradientMove{
+0%{background-position:0%;}
+100%{background-position:200%;}
+}
+.footer{
+background:#0e0e16;
+padding:80px 8% 30px 8%;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:60px;
+margin-bottom:50px;
+}
+
+.footer-col h3,
+.footer-col h4{
+margin-bottom:20px;
+font-weight:700;
+}
+
+.footer-col p{
+color:#aaa;
+line-height:1.7;
+}
+
+.footer-col ul{
+list-style:none;
+}
+
+.footer-col ul li{
+margin-bottom:12px;
+color:#aaa;
+}
+
+.footer-col ul li a{
+text-decoration:none;
+color:#aaa;
+transition:0.3s;
+}
+
+.footer-col ul li a:hover{
+color:#00f5ff;
+padding-left:5px;
+}
+
+.footer-bottom{
+text-align:center;
+color:#777;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,0.05);
+font-size:14px;
+}
+.clients{
+padding-top:100px;
+padding-bottom:100px;
+}
+
+.logo-wrapper{
+overflow:hidden;
+margin-top:50px;
+}
+
+.logo-track{
+display:flex;
+align-items:center;
+gap:80px;
+width:max-content;
+animation:scrollLogos 25s linear infinite;
+}
+
+.logo-wrapper:hover .logo-track{
+animation-play-state:paused;
+}
+
+.brand{
+font-size:22px;
+font-weight:600;
+letter-spacing:1px;
+color:#777;
+transition:0.4s;
+}
+
+.brand:hover{
+color:#fff;
+transform:scale(1.1);
+}
+
+@keyframes scrollLogos{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+.team-card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(25px);
+border-radius:25px;
+padding:40px;
+text-align:center;
+transition:0.4s;
+}
+
+.team-card:hover{
+transform:translateY(-10px);
+box-shadow:0 30px 80px rgba(0,255,255,0.15);
+}
+
+.team-card img{
+width:120px;
+height:120px;
+border-radius:50%;
+margin-bottom:20px;
+border:3px solid rgba(255,255,255,0.1);
+}
+
+.team-card h3{
+margin-bottom:5px;
+}
+
+.role{
+font-size:14px;
+color:#00f5ff;
+margin-bottom:15px;
+}
+
+.team-card p{
+color:#bdbdcc;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.team-socials a{
+margin:0 8px;
+color:#aaa;
+font-size:18px;
+transition:0.3s;
+}
+
+.team-socials a:hover{
+color:#00f5ff;
+}
+.team-card{
+transition: transform 0.2s ease;
+transform-style: preserve-3d;
+}
+.team-wrapper{
+overflow:hidden;
+margin-top:60px;
+}
+
+.team-track{
+display:flex;
+gap:40px;
+width:max-content;
+animation:scrollTeam 25s linear infinite;
+}
+
+.team-wrapper:hover .team-track{
+animation-play-state:paused;
+}
+
+@keyframes scrollTeam{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+/* ========================= */
+/* 🔥 MOBILE RESPONSIVE FIX */
+/* ========================= */
+
+@media (max-width: 1024px){
+.hero h1{
+font-size:48px;
+}
+}
+
+@media (max-width: 768px){
+
+nav{
+padding:15px 5%;
+}
+
+nav h2{
+font-size:18px;
+}
+
+nav div{
+display:none; /* hides nav links on mobile */
+}
+
+/* HERO */
+.hero{
+padding:0 5%;
+text-align:center;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+/* SECTIONS */
+.section{
+padding:80px 5%;
+}
+
+h2{
+font-size:28px;
+text-align:center;
+}
+
+/* ABOUT */
+.about-container{
+flex-direction:column;
+gap:40px;
+text-align:center;
+}
+
+/* SERVICES */
+.grid{
+grid-template-columns:1fr;
+}
+
+/* TESTIMONIAL */
+.testimonial-card{
+min-width:280px;
+}
+
+/* TEAM FIX */
+.team-track{
+animation:scrollTeam 35s linear infinite;
+}
+
+.team-card{
+min-width:280px;
+}
+
+/* FOOTER */
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px){
+
+.hero h1{
+font-size:28px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.stat-card{
+min-width:100%;
+}
+
+.team-card{
+min-width:260px;
+padding:30px;
+}
+}
+/* 🔥 About Section Text Size Upgrade */
+
+#about p{
+font-size:20px;   /* was 17px */
+line-height:1.8;
+}
+
+#about .about-highlights h3{
+font-size:22px;   /* slightly bigger headings */
+}
+
+#about .about-highlights p{
+font-size:18px;
+}
+/* ========================= */
+/* 🔥 TECH STACK SECTION */
+/* ========================= */
+
+.tech-wrapper{
+overflow:hidden;
+margin-top:60px;
+}
+
+.tech-track{
+display:flex;
+align-items:center;
+gap:70px;
+width:max-content;
+animation:scrollTech 30s linear infinite;
+}
+
+.tech-wrapper:hover .tech-track{
+animation-play-state:paused;
+}
+
+.tech-item{
+display:flex;
+flex-direction:column;
+align-items:center;
+font-size:40px;
+color:#777;
+transition:0.4s;
+}
+
+.tech-item span{
+margin-top:10px;
+font-size:14px;
+color:#aaa;
+letter-spacing:1px;
+}
+
+.tech-item:hover{
+color:#00f5ff;
+transform:scale(1.15);
+}
+
+@keyframes scrollTech{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Vibe Tech Nexus</h2>
+<div>
+<a href="#">Home</a>
+<a href="#about">About Us</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+<h1>
+We Build <span class="lux-gradient">Digital Products</span><br>
+That Scale Businesses.
+</h1>
+
+<p>
+From scalable web ecosystems to high-performance mobile platforms we engineer systems that convert and dominate.
+</p>
+
+<button class="btn">Start Your Project</button>
+</div>
+
+<!-- 🔥 NEW DASHBOARD VISUAL -->
+<div class="hero-visual">
+  <div class="glass-card">
+    <h4>Project Analytics</h4>
+
+    <div class="stat-row">
+      <span>Growth</span>
+      <span class="green">+92%</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" data-value="92"></div>
+    </div>
+
+    <div class="stat-row">
+      <span>Performance</span>
+      <span class="blue">98%</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" data-value="98"></div>
+    </div>
+
+    <div class="stat-row">
+      <span>Conversion</span>
+      <span class="purple">+89%</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" data-value="89"></div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+<section id="about" class="section">
+<div class="about-container">
+<div class="about-text">
+<h2>About <span class="lux-gradient">Vibe Tech Nexus</span></h2>
+<p>We build scalable web ecosystems, powerful mobile platforms, and modern growth systems for ambitious brands.</p>
+<p>Design with intention. Build with precision. Scale with strategy.</p>
+<div class="about-highlights">
+<div><h3>Innovation First</h3><p>Modern solutions, not outdated templates.</p></div>
+<div><h3>Performance Driven</h3><p>Optimized for speed & scalability.</p></div>
+<div><h3>Long-Term Partnership</h3><p>We grow with our clients.</p></div>
+</div>
+</div>
+<div class="about-visual">
+<div class="about-cards">
+<div class="stat-card">
+<h4><span class="counter" data-target="2">0</span>+</h4>
+<p>Years Experience</p>
+</div>
+
+<div class="stat-card">
+<h4><span class="counter" data-target="20">0</span>+</h4>
+<p>Projects Delivered</p>
+</div>
+
+<div class="stat-card">
+<h4><span class="counter" data-target="98">0</span>%</h4>
+<p>Client Satisfaction</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="services" class="section">
+<h2>What We Do</h2>
+<div class="grid">
+<div class="service-card"><i class="fa-solid fa-code"></i>
+<h3>Web Engineering</h3>
+<p>Scalable SaaS & modern web systems.</p>
+<div class="service-details" id="web">
+<ul>
+<li>E-commerce Websites</li>
+<li>Dynamic Websites</li>
+<li>Website Maintenance</li>
+<li>Business Websites</li>
+<li>Education Websites</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card" onclick="toggleService('mobile')">
+<i class="fa-solid fa-mobile-screen"></i>
+<h3>Mobile Ecosystems</h3>
+<p>Android & iOS performance apps.</p>
+<div class="service-details" id="mobile">
+<ul>
+<li>Android App</li>
+<li>iOS App</li>
+<li>Custom Software</li>
+<li>App & Software Maintenance</li>
+</ul>
+</div>
+</div>
+
+<div class="service-card" onclick="toggleService('growth')">
+<i class="fa-solid fa-rocket"></i>
+<h3>Growth Systems</h3>
+<p>Branding & digital growth systems.</p>
+<div class="service-details" id="growth">
+<ul>
+<li>Logo Design</li>
+<li>Social Media Design</li>
+<li>Corporate Branding</li>
+<li>Brochure & E-Cards</li>
+<li>Whatsapp Promotion</li>
+<li>Social Media Marketing</li>
+</ul>
+</div>
+</div>
+</div>
+<section class="section tech-stack">
+<h2 style="text-align:center;">Our Tech Stack</h2>
+
+<div class="tech-wrapper">
+<div class="tech-track">
+
+<div class="tech-item"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+<div class="tech-item"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+<div class="tech-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+<div class="tech-item"><i class="fa-brands fa-react"></i><span>React</span></div>
+<div class="tech-item"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+<div class="tech-item"><i class="fa-solid fa-database"></i><span>MongoDB</span></div>
+<div class="tech-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+<div class="tech-item"><i class="fa-brands fa-figma"></i><span>Figma</span></div>
+<div class="tech-item"><i class="fa-brands fa-android"></i><span>Android</span></div>
+<div class="tech-item"><i class="fa-brands fa-apple"></i><span>iOS</span></div>
+
+<!-- Duplicate for smooth infinite scroll -->
+<div class="tech-item"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+<div class="tech-item"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+<div class="tech-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+<div class="tech-item"><i class="fa-brands fa-react"></i><span>React</span></div>
+<div class="tech-item"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+<div class="tech-item"><i class="fa-solid fa-database"></i><span>MongoDB</span></div>
+<div class="tech-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+<div class="tech-item"><i class="fa-brands fa-figma"></i><span>Figma</span></div>
+<div class="tech-item"><i class="fa-brands fa-android"></i><span>Android</span></div>
+<div class="tech-item"><i class="fa-brands fa-apple"></i><span>iOS</span></div>
+
+</div>
+</div>
+</section>
+<section class="section">
+<h2 style="text-align:center;">Why Choose Vibe Tech?</h2>
+
+<div class="grid">
+
+<div class="service-card">
+<i class="fa-solid fa-bolt"></i>
+<h3>Performance First</h3>
+<p>We engineer high-speed systems optimized for scale and growth.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-chart-line"></i>
+<h3>ROI Driven Approach</h3>
+<p>Every solution is built to increase conversions and business impact.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Secure & Scalable</h3>
+<p>Clean architecture, secure backend, long-term maintainability.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-handshake"></i>
+<h3>Long-Term Partnership</h3>
+<p>We grow with our clients beyond launch.</p>
+</div>
+<div class="service-card">
+<i class="fa-solid fa-code-branch"></i>
+<h3>Modern Tech Stack</h3>
+<p>Built with the latest frameworks and technologies for long-term performance.</p>
+</div>
+
+<!-- 🔥 NEW CARD 6 -->
+<div class="service-card">
+<i class="fa-solid fa-headset"></i>
+<h3>Dedicated Support</h3>
+<p>Fast communication, transparent process and reliable technical support.</p>
+</div>
+
+</div>
+</section>
+</div>
+</section>
+<section class="section">
+<h2 style="text-align:center;">Our Process</h2>
+
+<div class="grid">
+<div class="service-card">
+<i class="fa-solid fa-lightbulb"></i>
+<h3>01. Discovery</h3>
+<p>We understand your business goals, target audience, and growth strategy.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-pencil-ruler"></i>
+<h3>02. Design & Architecture</h3>
+<p>We craft modern UI and scalable system architecture.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-code"></i>
+<h3>03. Development</h3>
+<p>High-performance development with clean, optimized code.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-rocket"></i>
+<h3>04. Launch & Scale</h3>
+<p>Deployment, monitoring, optimization & long-term growth support.</p>
+</div>
+</div>
+</section>
+<section class="section clients">
+<h2 style="text-align:center;">Trusted By Growing Brands</h2>
+
+<div class="logo-wrapper">
+<div class="logo-track">
+
+<div class="brand">Nexora</div>
+<div class="brand">SwiftScale</div>
+<div class="brand">NovaCart</div>
+<div class="brand">ElevateX</div>
+<div class="brand">QuantumFlow</div>
+<div class="brand">UrbanHive</div>
+
+
+<div class="brand">Nexora</div>
+<div class="brand">SwiftScale</div>
+<div class="brand">NovaCart</div>
+<div class="brand">ElevateX</div>
+<div class="brand">QuantumFlow</div>
+<div class="brand">UrbanHive</div>
+
+</div>
+</div>
+</section>
+<section class="section">
+<h2>What Clients Say</h2>
+<div class="testimonial-wrapper">
+<div class="testimonial-track">
+<div class="testimonial-card"><p>"Premium service and clean execution."</p><h4>— Founder</h4></div>
+<div class="testimonial-card"><p>"High-performance systems delivered."</p><h4>— Business Owner</h4></div>
+<div class="testimonial-card"><p>"Modern UI & scalable backend."</p><h4>— Startup CEO</h4></div>
+<div class="testimonial-card"><p>"Premium service and clean execution."</p><h4>— Founder</h4></div>
+<div class="testimonial-card"><p>"High-performance systems delivered."</p><h4>— Business Owner</h4></div>
+<div class="testimonial-card"><p>"Modern UI & scalable backend."</p><h4>— Startup CEO</h4></div>
+</div>
+</div>
+</section>
+<section class="section" id="team">
+<h2 style="text-align:center;">Meet Our Team</h2>
+
+<div class="team-wrapper">
+<div class="team-track">
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=12">
+<h3>Shaikh Anas</h3>
+<p class="role">Full Stack Developer</p>
+<p>Full-stack engineer focused on scalable systems & modern UI.</p>
+</div>
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=5">
+<h3>Dipen Vishwakarma</h3>
+<p class="role">App Developer</p>
+<p>Architecting secure backend systems & scalable infrastructure.</p>
+</div>
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=8">
+<h3>Shaikh Amaan</h3>
+<p class="role">UI/UX Designer & Software Maker</p>
+<p>Designing premium brand experiences & software interfaces.</p>
+</div>
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=15">
+<h3>Ankit</h3>
+<p class="role">Marketing & Client Acquisition</p>
+<p>Driving growth strategies & building long-term partnerships.</p>
+</div>
+
+<!-- Duplicate for smooth infinite scroll -->
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=12">
+<h3>Shaikh Anas</h3>
+<p class="role">Full Stack Developer</p>
+<p>Full-stack engineer focused on scalable systems & modern UI.</p>
+</div>
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=5">
+<h3>Dipen Vishwakarma</h3>
+<p class="role">App Developer</p>
+<p>Architecting secure backend systems & scalable infrastructure.</p>
+</div>
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=8">
+<h3>Shaikh Amaan</h3>
+<p class="role">UI/UX Designer & Software Maker</p>
+<p>Designing premium brand experiences & software interfaces.</p>
+</div>
+
+<div class="team-card">
+<img src="https://i.pravatar.cc/300?img=15">
+<h3>Ankit</h3>
+<p class="role">Marketing & Client Acquisition</p>
+<p>Driving growth strategies & building long-term partnerships.</p>
+</div>
+
+</div>
+</div>
+</section>
+<section class="section">
+<h2 style="text-align:center;">Investment Plans</h2>
+
+<div class="grid">
+
+<div class="service-card">
+<h3>Starter</h3>
+<h4 style="margin:15px 0; font-size:28px;" class="lux-gradient">₹9,999+</h4>
+<ul style="list-style:none; color:#aaa; line-height:1.8;">
+<li>✔ Business Website</li>
+<li>✔ Responsive Design</li>
+<li>✔ Basic SEO</li>
+<li>✔ 1 Month Support</li>
+</ul>
+</div>
+
+<div class="service-card">
+<h3>Growth</h3>
+<h4 style="margin:15px 0; font-size:28px;" class="lux-gradient">₹24,999+</h4>
+<ul style="list-style:none; color:#aaa; line-height:1.8;">
+<li>✔ Custom Web Application</li>
+<li>✔ Performance Optimization</li>
+<li>✔ Advanced SEO</li>
+<li>✔ 3 Months Support</li>
+</ul>
+</div>
+
+<div class="service-card">
+<h3>Scale</h3>
+<h4 style="margin:15px 0; font-size:28px;" class="lux-gradient">Custom</h4>
+<ul style="list-style:none; color:#aaa; line-height:1.8;">
+<li>✔ Web + Mobile App</li>
+<li>✔ Full Growth Strategy</li>
+<li>✔ Dedicated Support</li>
+<li>✔ Long-Term Partnership</li>
+</ul>
+</div>
+
+</div>
+</section>
+<section id="contact" class="section">
+<h2>Let’s Build Something Big</h2>
+<form class="contact-form" action="https://formsubmit.co/el/kaneri" method="POST">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Lead from Website">
+<input type="hidden" name="_template" value="table">
+
+<div class="input-group">
+<input type="text" name="name" required>
+<label>Your Name</label>
+</div>
+
+<div class="input-group">
+<input type="email" name="email" required>
+<label>Your Email</label>
+</div>
+
+<div class="input-group">
+<textarea name="message" rows="4" required></textarea>
+<label>Your Message</label>
+</div>
+
+<button type="submit" class="btn">Send Message</button>
+</form>
+</section>
+<section class="section" style="text-align:center;">
+<h2>Ready To Build Something Powerful?</h2>
+
+<p style="color:#aaa; margin-bottom:30px;">
+Let’s transform your vision into scalable digital reality.
+</p>
+
+<a href="https://wa.me/917039314643?text=Hi%20Vibe%20Tech%2C%20I%20would%20like%20to%20book%20a%20free%20consultation%20for%20my%20project." target="_blank">
+<button class="btn">Book Free Consultation</button>
+</a>
+
+</section>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-col">
+<h3>Vibe Tech Nexus</h3>
+<p>
+We specialize in web engineering, mobile ecosystems, and scalable
+digital growth systems that help ambitious businesses dominate online.
+</p>
+</div>
+
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="#about">About Us</a></li>
+<li><a href="#contact">Contact Us</a></li>
+<li><a href="#services">Our Services</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Contact</h4>
+<ul>
+<li>📞 70393 14643</li>
+<li>📧 vibetechnexus@gmail.com</li>
+<li>📍 India</li>
+<li>
+<a href="https://www.instagram.com/viibe.tech/" target="_blank">
+Instagram @viibe.tech
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Vibe Tech Nexus. All Rights Reserved.
+</div>
+
+</footer>
+
+<a href="https://wa.me/917039314643" class="whatsapp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const bars = document.querySelectorAll(".progress-bar");
+
+  bars.forEach(bar => {
+    const value = bar.getAttribute("data-value");
+    setTimeout(() => {
+      bar.style.width = value + "%";
+    }, 300);
+  });
+});
+/* Animated Counter */
+const counters = document.querySelectorAll('.counter');
+
+const speed = 100;
+
+counters.forEach(counter => {
+const updateCount = () => {
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
+
+const increment = target / speed;
+
+if(count < target){
+counter.innerText = Math.ceil(count + increment);
+setTimeout(updateCount, 20);
+}else{
+counter.innerText = target;
+}
+};
+
+updateCount();
+});
+const cards = document.querySelectorAll('.team-card');
+
+cards.forEach(card => {
+card.addEventListener('mousemove', (e) => {
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+
+const rotateX = ((y - centerY) / centerY) * -6;
+const rotateY = ((x - centerX) / centerX) * 6;
+
+card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+card.addEventListener('mouseleave', () => {
+card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+});
+});
+</script>
+
+</body>
+</html>
