@@ -9,7 +9,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-    /* HERO LAYOUT FIX */
 .hero{
 display:flex;
 align-items:center;
@@ -27,25 +26,18 @@ display:flex;
 justify-content:center;
 align-items:center;
 }
-
-/* GLASS DASHBOARD */
-/* HERO LAYOUT */
 .hero{
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:120px;
 }
-
-/* HERO VISUAL */
 .hero-visual{
 flex:1;
 display:flex;
 justify-content:center;
 position:relative;
 }
-
-/* Glow Behind Card */
 .hero-visual::before{
 content:"";
 position:absolute;
@@ -55,11 +47,9 @@ background:radial-gradient(circle,#00f5ff40,#a855f740,transparent 70%);
 filter:blur(120px);
 z-index:-1;
 }
-
-/* GLASS CARD BIG VERSION */
 .glass-card{
-width:500px;                /* 🔥 bigger */
-padding:55px;               /* more breathing space */
+width:500px;
+padding:55px;
 border-radius:35px;
 background:rgba(255,255,255,0.06);
 border:1px solid rgba(255,255,255,0.15);
@@ -68,14 +58,12 @@ box-shadow:0 80px 180px rgba(0,255,255,0.25);
 animation:float 6s ease-in-out infinite;
 }
 
-/* Title Bigger */
 .glass-card h4{
 font-size:24px;
 margin-bottom:40px;
 letter-spacing:1px;
 }
 
-/* Stats Text Bigger */
 .stat-row{
 display:flex;
 justify-content:space-between;
@@ -83,8 +71,6 @@ margin-bottom:12px;
 font-size:17px;
 color:#ccc;
 }
-
-/* Progress Bars Thicker */
 .progress{
 height:12px;
 background:rgba(255,255,255,0.1);
@@ -109,29 +95,87 @@ width:98%;
 width:72%;
 }
 
-/* Colors */
 .green{color:#00ffae;}
 .blue{color:#00f5ff;}
 .purple{color:#a855f7;}
+.menu-toggle{
+display:none;
+font-size:22px;
+cursor:pointer;
+}
+@media(max-width:768px){
 
-/* Float Animation */
+.team-track{
+animation:none;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding-bottom:20px;
+}
+
+.team-card{
+min-width:85%;
+scroll-snap-align:center;
+}
+}
+
+@media(max-width:768px){
+
+.nav-links{
+position:absolute;
+top:70px;
+right:0;
+background:#111;
+width:100%;
+flex-direction:column;
+text-align:center;
+padding:20px 0;
+display:none;
+}
+
+.nav-links a{
+display:block;
+margin:15px 0;
+font-size:16px;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+nav{
+padding:15px 5%;
+}
+}
 @keyframes float{
 0%,100%{transform:translateY(0);}
 50%{transform:translateY(-18px);}
 }
 
-/* Responsive */
-@media(max-width:1000px){
+@media (max-width:768px){
+
 .hero{
 flex-direction:column;
-text-align:center;
+padding-top:100px;
+gap:40px;
 }
-.hero-visual{
-margin-top:50px;
+
+.hero h1{
+font-size:32px;
+line-height:1.3;
 }
+
+.hero p{
+font-size:15px;
+}
+
 .glass-card{
 width:100%;
-max-width:450px;
+max-width:100%;
+padding:35px;
 }
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -161,13 +205,39 @@ z-index:-1;
 nav{
 position:fixed;
 width:100%;
-padding:20px 8%;
+padding:22px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 backdrop-filter:blur(20px);
 background:rgba(255,255,255,0.04);
 z-index:1000;
+transition:all 0.3s ease;
+}
+
+nav.shrink{
+padding:12px 8%;
+background:rgba(0,0,0,0.8);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+nav h2{
+font-size:22px;
+transition:0.3s;
+}
+
+nav.shrink h2{
+font-size:18px;
+}
+
+nav a{
+font-size:16px;
+margin-left:30px;
+transition:0.3s;
+}
+
+nav.shrink a{
+font-size:14px;
 }
 nav h2{
 font-weight:800;
@@ -369,6 +439,16 @@ border-radius:20px;
 padding:40px;
 color:#ccc;
 }
+.testimonial-card p{
+margin-bottom:12px;
+line-height:1.6;
+}
+
+.testimonial-card h4{
+margin-top:15px;
+font-size:14px;
+color:#00f5ff;
+}
 @keyframes scrollLoop{
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
@@ -417,9 +497,8 @@ color:#aaa;
 border-top:1px solid rgba(255,255,255,0.08);
 }
 .whatsapp{
-position:fixed;
-bottom:30px;
-right:30px;
+bottom:20px;
+right:20px;
 width:60px;height:60px;
 background:#25D366;
 border-radius:50%;
@@ -549,6 +628,8 @@ height:120px;
 border-radius:50%;
 margin-bottom:20px;
 border:3px solid rgba(255,255,255,0.1);
+object-fit: cover;
+object-position: center;
 }
 
 .team-card h3{
@@ -567,15 +648,29 @@ font-size:14px;
 margin-bottom:20px;
 }
 
+.team-socials{
+margin-top:15px;
+}
+
 .team-socials a{
-margin:0 8px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:40px;
+height:40px;
+margin:0 6px;
+border-radius:50%;
+background:rgba(255,255,255,0.08);
 color:#aaa;
 font-size:18px;
-transition:0.3s;
+transition:0.3s ease;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .team-socials a:hover{
-color:#00f5ff;
+color:#fff;
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+transform:translateY(-4px);
 }
 .team-card{
 transition: transform 0.2s ease;
@@ -601,10 +696,6 @@ animation-play-state:paused;
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
 }
-/* ========================= */
-/* 🔥 MOBILE RESPONSIVE FIX */
-/* ========================= */
-
 @media (max-width: 1024px){
 .hero h1{
 font-size:48px;
@@ -622,13 +713,54 @@ font-size:18px;
 }
 
 nav div{
-display:none; /* hides nav links on mobile */
+display:none;
 }
 
-/* HERO */
+@media (max-width:768px){
+
 .hero{
-padding:0 5%;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:120px 24px 60px 24px;
 text-align:center;
+gap:40px;
+}
+@media (max-width:768px){
+
+body{
+overflow-x:hidden;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+}
+@media (max-width:768px){
+
+.service-card,
+.stat-card,
+.testimonial-card,
+.team-card,
+.contact-form{
+width:100%;
+max-width:100%;
+margin:0 auto;
+}
+
+}
+.hero-content{
+max-width:100%;
+}
+
+.hero-visual{
+width:100%;
+display:flex;
+justify-content:center;
+}
+
 }
 
 .hero h1{
@@ -639,9 +771,12 @@ font-size:34px;
 font-size:16px;
 }
 
-/* SECTIONS */
+@media (max-width:768px){
+
 .section{
-padding:80px 5%;
+padding:70px 24px;
+}
+
 }
 
 h2{
@@ -649,24 +784,25 @@ font-size:28px;
 text-align:center;
 }
 
-/* ABOUT */
 .about-container{
 flex-direction:column;
 gap:40px;
 text-align:center;
 }
 
-/* SERVICES */
+@media (max-width:768px){
+
 .grid{
 grid-template-columns:1fr;
+gap:30px;
 }
 
-/* TESTIMONIAL */
+}
+
 .testimonial-card{
 min-width:280px;
 }
 
-/* TEAM FIX */
 .team-track{
 animation:scrollTeam 35s linear infinite;
 }
@@ -675,15 +811,12 @@ animation:scrollTeam 35s linear infinite;
 min-width:280px;
 }
 
-/* FOOTER */
 .footer-container{
 grid-template-columns:1fr;
 text-align:center;
 }
 
 }
-
-/* EXTRA SMALL DEVICES */
 @media (max-width: 480px){
 
 .hero h1{
@@ -763,20 +896,45 @@ transform:scale(1.15);
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
 }
+@media (max-width:768px){
+
+.footer-container{
+grid-template-columns:1fr;
+gap:40px;
+text-align:center;
+}
+
+.footer-col{
+align-items:center;
+display:flex;
+flex-direction:column;
+}
+
+.footer-col ul{
+padding:0;
+}
+
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-<h2>Vibe Tech Nexus</h2>
-<div>
-<a href="#">Home</a>
-<a href="#about">About Us</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</div>
+  <h2>Vibe Tech Nexus</h2>
+
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 </nav>
+
 
 <section class="hero">
 
@@ -1041,12 +1199,67 @@ From scalable web ecosystems to high-performance mobile platforms we engineer sy
 <h2>What Clients Say</h2>
 <div class="testimonial-wrapper">
 <div class="testimonial-track">
-<div class="testimonial-card"><p>"Premium service and clean execution."</p><h4>— Founder</h4></div>
-<div class="testimonial-card"><p>"High-performance systems delivered."</p><h4>— Business Owner</h4></div>
-<div class="testimonial-card"><p>"Modern UI & scalable backend."</p><h4>— Startup CEO</h4></div>
-<div class="testimonial-card"><p>"Premium service and clean execution."</p><h4>— Founder</h4></div>
-<div class="testimonial-card"><p>"High-performance systems delivered."</p><h4>— Business Owner</h4></div>
-<div class="testimonial-card"><p>"Modern UI & scalable backend."</p><h4>— Startup CEO</h4></div>
+
+<div class="testimonial-card">
+<p>
+Vibe Tech didn’t just build us a website — they built a scalable system.
+</p>
+<p>
+Our load time improved dramatically and we’ve seen a clear increase in conversions within weeks of launch.
+</p>
+<h4>Rahul Mehta — Founder, NovaCart</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+What impressed me most was their clarity and structure.
+</p>
+<p>
+Every milestone was delivered on time and communication was professional throughout the project.
+</p>
+<h4>Priya Sharma — CEO, ElevateX</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+Their team understands both technology and business.
+</p>
+<p>
+The backend architecture is solid and the UI feels premium.
+</p>
+<h4>Arjun Patel — Director, SwiftScale</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+From branding to development, everything felt aligned.
+</p>
+<p>
+The logo and website gave our brand a completely new identity.
+</p>
+<h4>Sneha Kapoor — Marketing Head, UrbanHive</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+We approached Vibe Tech with just an idea.
+</p>
+<p>
+They turned it into a fully functional product with performance optimization built in.
+</p>
+<h4>Karan Verma — Startup Founder</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+The level of detail in their work stands out.
+</p>
+<p>
+Clean code, secure backend, and a design that truly reflects our vision.
+</p>
+<h4>Nisha Iyer — Operations Manager, QuantumFlow</h4>
+</div>
+
 </div>
 </div>
 </section>
@@ -1056,61 +1269,145 @@ From scalable web ecosystems to high-performance mobile platforms we engineer sy
 <div class="team-wrapper">
 <div class="team-track">
 
+<!-- 1️⃣ Shaikh Anas -->
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=12">
-<h3>Shaikh Anas</h3>
-<p class="role">Full Stack Developer</p>
-<p>Full-stack engineer focused on scalable systems & modern UI.</p>
+  <img src="Anas.jpg">
+  <h3>Shaikh Anas</h3>
+  <p class="role">Lead Full-Stack Engineer & Technical Strategist</p>
+  <p>Architecting scalable web systems, modern UI and growth-focused digital products.</p>
+
+  <div class="team-socials">
+    <a href="https://www.linkedin.com/in/your-link" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://yourportfolio.com" target="_blank">
+      <i class="fa-solid fa-globe"></i>
+    </a>
+  </div>
 </div>
 
+<!-- 2️⃣ Dipen Vishwakarma -->
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=5">
-<h3>Dipen Vishwakarma</h3>
-<p class="role">App Developer</p>
-<p>Architecting secure backend systems & scalable infrastructure.</p>
+  <img src="https://i.pravatar.cc/300?img=5">
+  <h3>Dipen Vishwakarma</h3>
+  <p class="role">Full-Stack Application Engineer</p>
+  <p>Building secure backend systems and high-performance applications.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
 </div>
 
+<!-- 3️⃣ Shaikh Amaan -->
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=8">
-<h3>Shaikh Amaan</h3>
-<p class="role">UI/UX Designer & Software Maker</p>
-<p>Designing premium brand experiences & software interfaces.</p>
+  <img src="https://i.pravatar.cc/300?img=8">
+  <h3>Shaikh Amaan</h3>
+  <p class="role">UI/UX Designer & Product Interface Specialist</p>
+  <p>Crafting premium user experiences and intuitive digital interfaces.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
 </div>
 
+<!-- 4️⃣ Shaikh Sohail -->
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=15">
-<h3>Ankit</h3>
-<p class="role">Marketing & Client Acquisition</p>
-<p>Driving growth strategies & building long-term partnerships.</p>
+  <img src="https://i.pravatar.cc/300?img=12">
+  <h3>Shaikh Sohail</h3>
+  <p class="role">Brand Identity & Marketing Design Specialist</p>
+  <p>Designing logos, brand visuals and marketing creatives that convert.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
 </div>
 
-<!-- Duplicate for smooth infinite scroll -->
+<!-- 5️⃣ Ankit Sah -->
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=12">
-<h3>Shaikh Anas</h3>
-<p class="role">Full Stack Developer</p>
-<p>Full-stack engineer focused on scalable systems & modern UI.</p>
+  <img src="https://i.pravatar.cc/300?img=15">
+  <h3>Ankit Sah</h3>
+  <p class="role">Business Development & Growth Manager</p>
+  <p>Managing client relationships, acquisition strategy and social growth systems.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
 </div>
 
-<div class="team-card">
-<img src="https://i.pravatar.cc/300?img=5">
-<h3>Dipen Vishwakarma</h3>
-<p class="role">App Developer</p>
-<p>Architecting secure backend systems & scalable infrastructure.</p>
-</div>
+<!-- 🔁 Duplicate for smooth infinite scroll -->
 
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=8">
-<h3>Shaikh Amaan</h3>
-<p class="role">UI/UX Designer & Software Maker</p>
-<p>Designing premium brand experiences & software interfaces.</p>
+  <img src="Anas.jpg">
+  <h3>Shaikh Anas</h3>
+  <p class="role">Lead Full-Stack Engineer & Technical Strategist</p>
+  <p>Architecting scalable web systems, modern UI and growth-focused digital products.</p>
+
+  <div class="team-socials">
+    <a href="https://www.linkedin.com/in/your-link" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://yourportfolio.com" target="_blank">
+      <i class="fa-solid fa-globe"></i>
+    </a>
+  </div>
 </div>
 
+<!-- 2️⃣ Dipen Vishwakarma -->
 <div class="team-card">
-<img src="https://i.pravatar.cc/300?img=15">
-<h3>Ankit</h3>
-<p class="role">Marketing & Client Acquisition</p>
-<p>Driving growth strategies & building long-term partnerships.</p>
+  <img src="https://i.pravatar.cc/300?img=5">
+  <h3>Dipen Vishwakarma</h3>
+  <p class="role">Full-Stack Application Engineer</p>
+  <p>Building secure backend systems and high-performance applications.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
+</div>
+
+<!-- 3️⃣ Shaikh Amaan -->
+<div class="team-card">
+  <img src="https://i.pravatar.cc/300?img=8">
+  <h3>Shaikh Amaan</h3>
+  <p class="role">UI/UX Designer & Product Interface Specialist</p>
+  <p>Crafting premium user experiences and intuitive digital interfaces.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
+</div>
+
+<!-- 4️⃣ Shaikh Sohail -->
+<div class="team-card">
+  <img src="https://i.pravatar.cc/300?img=12">
+  <h3>Shaikh Sohail</h3>
+  <p class="role">Brand Identity & Marketing Design Specialist</p>
+  <p>Designing logos, brand visuals and marketing creatives that convert.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
+</div>
+
+<!-- 5️⃣ Ankit Sah -->
+<div class="team-card">
+  <img src="https://i.pravatar.cc/300?img=15">
+  <h3>Ankit Sah</h3>
+  <p class="role">Business Development & Growth Manager</p>
+  <p>Managing client relationships, acquisition strategy and social growth systems.</p>
+
+  <div class="team-socials">
+    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+  </div>
+</div>
+
 </div>
 
 </div>
@@ -1251,7 +1548,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 300);
   });
 });
-/* Animated Counter */
 const counters = document.querySelectorAll('.counter');
 
 const speed = 100;
@@ -1293,6 +1589,16 @@ card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 card.addEventListener('mouseleave', () => {
 card.style.transform = `rotateX(0deg) rotateY(0deg)`;
 });
+});
+window.addEventListener("scroll", function(){
+const nav = document.querySelector("nav");
+nav.classList.toggle("shrink", window.scrollY > 50);
+});
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", () => {
+navLinks.classList.toggle("active");
 });
 </script>
 
